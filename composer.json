@@ -1,0 +1,17 @@
+{
+    "name": "pedrodata/hotel-service",
+    "description": "A short description of what your package does",
+    "require": {
+        "php": ">=7.2.5",
+        "guzzlehttp/guzzle": "^7.2"
+    },
+    "require-dev": {
+    },
+    "config": {
+    },
+    "autoload": {
+        "psr-4": {
+            "Hotel\\": "src/"
+        }
+    }
+}
