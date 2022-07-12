@@ -2,6 +2,7 @@
 
 namespace Hotel\Service; 
 
+use GuzzleHttp\Client;
 
 class HotelService {
 
@@ -18,13 +19,14 @@ class HotelService {
 		$this->getWebServiceHotels();
 	}
 
-	private function getWebServiceHotels() 
-	{
-		$response = Http::get(
+	private function getWebServiceHotels() {
+		$client = new Client();
+		$response = $client->request(
+			'GET',
 			'https://xlr8-interview-files.s3.eu-west-2.amazonaws.com/source_2.json'
 		);
 
-		$this->response = json_decode($response, false);
+		$this->response = json_decode($response->getBody(), false);
 	}
 
 	private function sortHotelsByLocation() : array 
