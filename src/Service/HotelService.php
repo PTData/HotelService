@@ -1,6 +1,6 @@
 <?php
 
-namespace Hotel\Service; 
+namespace PedroData\Hotel\Service; 
 
 use GuzzleHttp\Client;
 
