@@ -2,6 +2,8 @@
 
 namespace PedroData\Hotel;
 
+use PedroData\Hotel\Service\HotelService;
+
 class Search {
 
 
@@ -11,7 +13,7 @@ class Search {
 		string $orderby
 	) {
 
-		$hotelService = new hotel;
+	$hotelService = new HotelService($latitude, $longitude, $orderby);
 
         $html = '';
         foreach($hotelService->getNearbyHotels() as $hotel) {
