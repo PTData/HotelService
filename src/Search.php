@@ -1,6 +1,6 @@
 <?php
 
-namespace Hotel;
+namespace PedroData\Hotel;
 
 class Search {
 
