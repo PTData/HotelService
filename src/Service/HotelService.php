@@ -18,6 +18,11 @@ class HotelService {
 		// calling webservice
 		$this->getWebServiceHotels();
 	}
+	
+	public static function getNearbyHotels(... $params	)
+	{
+		return new static(... $params);
+	}
 
 	private function getWebServiceHotels() {
 		$client = new Client();
@@ -122,12 +127,12 @@ class HotelService {
 		return $hotels;
 	}
 
-	public function getNearbyHotels() {
+	public function search() {
 
-		$order = ($this->orderBy !== 'pricepernight') ? 'proximity' : 'pricepernight' ; 
+		$order = ($this->orderBy !== 'pricepernight') ? '' : 'pricepernight' ; 
 
 		$hotelOrder = match ($order) {
-		    'proximity' 	=> $this->sortHotelsByLocation(),
+		    'proximity', '' 	=> $this->sortHotelsByLocation(),
 		    'pricepernight' => $this->sortHotelsByPrice(),
 		};
 			
